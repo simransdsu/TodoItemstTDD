@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TodoItem {
+struct TodoItem: Equatable {
     let title: String
     let itemDescription: String?
     let timestamp: TimeInterval?
@@ -18,5 +18,14 @@ struct TodoItem {
         self.itemDescription = itemDescription
         self.timestamp = timestamp
         self.location = location
+    }
+    
+    static func == (lhs: TodoItem, rhs: TodoItem) -> Bool {
+        return lhs.title == rhs.title
+        && lhs.itemDescription == rhs.itemDescription
+        && lhs.timestamp == rhs.timestamp
+        && lhs.location?.coordinate?.latitude == rhs.location?.coordinate?.latitude
+        && lhs.location?.name == rhs.location?.name
+        && lhs.location?.coordinate?.longitude == rhs.location?.coordinate?.longitude
     }
 }

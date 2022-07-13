@@ -7,6 +7,7 @@
 
 import XCTest
 @testable import TodoItemstTDD
+import CoreLocation
 
 class TodoItemsTests: XCTestCase {
 
@@ -45,6 +46,50 @@ class TodoItemsTests: XCTestCase {
         
         XCTAssertNotNil(item.location, "Location in item should not be null when set, but is nil")
         XCTAssert(item.location?.name == "Dummy Location", "Location name should be `Dummy Location` but is NOT.")
+    }
+    
+    func test_2TodoItemObjectsWithSameValue_areEquatedAsEquals() {
+        let todo1 = TodoItem(title: "Title",
+                            itemDescription: "Description",
+                            timestamp: 100.0,
+                            location: Location(
+                                name: "Location",
+                                coordinate: CLLocationCoordinate2D(latitude: 1, longitude: 2)
+                            )
+        )
+        
+        let todo2 = TodoItem(title: "Title",
+                             itemDescription: "Description",
+                             timestamp: 100.0,
+                             location: Location(
+                                name: "Location",
+                                coordinate: CLLocationCoordinate2D(latitude: 1, longitude: 2)
+                             )
+        )
+        
+        XCTAssertEqual(todo1, todo2)
+    }
+    
+    func test_2TodoItemObjectsWithDifferebtValue_areEquatedAsUnEquals() {
+        let todo1 = TodoItem(title: "Title",
+                             itemDescription: "Description",
+                             timestamp: 100.0,
+                             location: Location(
+                                name: "Location",
+                                coordinate: CLLocationCoordinate2D(latitude: 1, longitude: 2)
+                             )
+        )
+        
+        let todo2 = TodoItem(title: "Title",
+                             itemDescription: "Description",
+                             timestamp: 100.0,
+                             location: Location(
+                                name: "Location 2",
+                                coordinate: CLLocationCoordinate2D(latitude: 1, longitude: 2)
+                             )
+        )
+        
+        XCTAssertNotEqual(todo1, todo2)
     }
     
     
