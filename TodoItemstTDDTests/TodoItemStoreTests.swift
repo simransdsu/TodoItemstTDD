@@ -34,6 +34,7 @@ class TodoItemStoreTests: XCTestCase {
         wait(for: [publisherExpectation], timeout: 1)
         subscription.cancel()
         XCTAssertEqual(receivedItems.first?.title, toDoItem.title)
+        XCTAssertEqual(receivedItems, [toDoItem])
     }
     
     override func tearDownWithError() throws {
