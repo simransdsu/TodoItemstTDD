@@ -111,17 +111,12 @@
 		49F047A7286E0A6200D9E9F3 /* TodoItemstTDD */ = {
 			isa = PBXGroup;
 			children = (
-				49F047A8286E0A6200D9E9F3 /* AppDelegate.swift */,
-				49F047AA286E0A6200D9E9F3 /* SceneDelegate.swift */,
-				49F047AC286E0A6200D9E9F3 /* ViewController.swift */,
-				49F047AE286E0A6200D9E9F3 /* Main.storyboard */,
-				49F047B1286E0A6300D9E9F3 /* Assets.xcassets */,
-				49F047B3286E0A6300D9E9F3 /* LaunchScreen.storyboard */,
+				49F5F64D2881C60A00AC9EFF /* Resources */,
+				49F5F64C2881C5FF00AC9EFF /* Views */,
+				49F5F64B2881C5F500AC9EFF /* ViewControllers */,
+				49F5F64A2881C5EC00AC9EFF /* Persistance */,
+				49F5F6492881C5DA00AC9EFF /* Models */,
 				49F047B6286E0A6300D9E9F3 /* Info.plist */,
-				499D022E2878848D00D9585E /* TodoItem.swift */,
-				499D6601287E50A900F3C93D /* Location.swift */,
-				499D6607287F069000F3C93D /* TodoItemStore.swift */,
-				49F5F6472881BAB800AC9EFF /* Coordinate.swift */,
 			);
 			path = TodoItemstTDD;
 			sourceTree = "<group>";
@@ -143,6 +138,51 @@
 				49F047CB286E0A6300D9E9F3 /* TodoItemstTDDUITestsLaunchTests.swift */,
 			);
 			path = TodoItemstTDDUITests;
+			sourceTree = "<group>";
+		};
+		49F5F6492881C5DA00AC9EFF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				499D022E2878848D00D9585E /* TodoItem.swift */,
+				499D6601287E50A900F3C93D /* Location.swift */,
+				49F5F6472881BAB800AC9EFF /* Coordinate.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		49F5F64A2881C5EC00AC9EFF /* Persistance */ = {
+			isa = PBXGroup;
+			children = (
+				499D6607287F069000F3C93D /* TodoItemStore.swift */,
+			);
+			path = Persistance;
+			sourceTree = "<group>";
+		};
+		49F5F64B2881C5F500AC9EFF /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				49F047AC286E0A6200D9E9F3 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		49F5F64C2881C5FF00AC9EFF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				49F047AE286E0A6200D9E9F3 /* Main.storyboard */,
+				49F047B3286E0A6300D9E9F3 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		49F5F64D2881C60A00AC9EFF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				49F047A8286E0A6200D9E9F3 /* AppDelegate.swift */,
+				49F047AA286E0A6200D9E9F3 /* SceneDelegate.swift */,
+				49F047B1286E0A6300D9E9F3 /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
