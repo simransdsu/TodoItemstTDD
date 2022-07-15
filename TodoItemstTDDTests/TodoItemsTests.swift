@@ -58,14 +58,7 @@ class TodoItemsTests: XCTestCase {
                             )
         )
         
-        let todo2 = TodoItem(title: "Title",
-                             itemDescription: "Description",
-                             timestamp: 100.0,
-                             location: Location(
-                                name: "Location",
-                                coordinate: CLLocationCoordinate2D(latitude: 1, longitude: 2)
-                             )
-        )
+        let todo2 = todo1
         
         XCTAssertEqual(todo1, todo2)
     }
