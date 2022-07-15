@@ -21,6 +21,7 @@
 		49F047CA286E0A6300D9E9F3 /* TodoItemstTDDUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F047C9286E0A6300D9E9F3 /* TodoItemstTDDUITests.swift */; };
 		49F047CC286E0A6300D9E9F3 /* TodoItemstTDDUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F047CB286E0A6300D9E9F3 /* TodoItemstTDDUITestsLaunchTests.swift */; };
 		49F047D9286E0CCD00D9E9F3 /* TodoItemsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F047D8286E0CCD00D9E9F3 /* TodoItemsTests.swift */; };
+		49F5F6482881BAB800AC9EFF /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F5F6472881BAB800AC9EFF /* Coordinate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		49F047C9286E0A6300D9E9F3 /* TodoItemstTDDUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemstTDDUITests.swift; sourceTree = "<group>"; };
 		49F047CB286E0A6300D9E9F3 /* TodoItemstTDDUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemstTDDUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		49F047D8286E0CCD00D9E9F3 /* TodoItemsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemsTests.swift; sourceTree = "<group>"; };
+		49F5F6472881BAB800AC9EFF /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				499D022E2878848D00D9585E /* TodoItem.swift */,
 				499D6601287E50A900F3C93D /* Location.swift */,
 				499D6607287F069000F3C93D /* TodoItemStore.swift */,
+				49F5F6472881BAB800AC9EFF /* Coordinate.swift */,
 			);
 			path = TodoItemstTDD;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				499D6602287E50A900F3C93D /* Location.swift in Sources */,
 				499D022F2878848D00D9585E /* TodoItem.swift in Sources */,
 				49F047AB286E0A6200D9E9F3 /* SceneDelegate.swift in Sources */,
+				49F5F6482881BAB800AC9EFF /* Coordinate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

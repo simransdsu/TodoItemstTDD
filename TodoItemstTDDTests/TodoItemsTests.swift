@@ -7,7 +7,6 @@
 
 import XCTest
 @testable import TodoItemstTDD
-import CoreLocation
 
 class TodoItemsTests: XCTestCase {
 
@@ -54,7 +53,7 @@ class TodoItemsTests: XCTestCase {
                             timestamp: 100.0,
                             location: Location(
                                 name: "Location",
-                                coordinate: CLLocationCoordinate2D(latitude: 1, longitude: 2)
+                                coordinate: Coordinate(latitude: 1, longitude: 2)
                             )
         )
         
@@ -69,7 +68,7 @@ class TodoItemsTests: XCTestCase {
                              timestamp: 100.0,
                              location: Location(
                                 name: "Location",
-                                coordinate: CLLocationCoordinate2D(latitude: 1, longitude: 2)
+                                coordinate: Coordinate(latitude: 1, longitude: 2)
                              )
         )
         
@@ -78,7 +77,7 @@ class TodoItemsTests: XCTestCase {
                              timestamp: 100.0,
                              location: Location(
                                 name: "Location 2",
-                                coordinate: CLLocationCoordinate2D(latitude: 1, longitude: 2)
+                                coordinate: Coordinate(latitude: 1, longitude: 2)
                              )
         )
         

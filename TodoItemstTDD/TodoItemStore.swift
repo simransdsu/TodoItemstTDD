@@ -17,8 +17,16 @@ class TodoItemStore {
         }
     }
     
+    private let filename: String
+    
+    init(filename: String = "todoItems") {
+        self.filename = filename
+        loadItems()
+    }
+    
     func add(_ todoItem: TodoItem) {
         items.append(todoItem)
+        saveItems()
     }
     
     func check(_ todoItem: TodoItem) {
@@ -26,6 +34,29 @@ class TodoItemStore {
         mutableItem.done = true
         if let index = items.firstIndex(of: mutableItem) {
             items[index] = mutableItem
+        }
+        saveItems()
+    }
+    
+    private func saveItems() {
+        if let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent(filename).appendingPathExtension("json") {
+            do {
+                let data = try JSONEncoder().encode(items)
+                try data.write(to: url)
+            } catch  {
+                print("❌ in \(#function) \(error.localizedDescription) \n", error)
+            }
+        }
+    }
+    
+    private func loadItems() {
+        if let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent(filename).appendingPathExtension("json") {
+            do {
+                let data = try Data(contentsOf: url)
+                items = try JSONDecoder().decode([TodoItem].self, from: data)
+            } catch  {
+                print("❌ in \(#function) \(error.localizedDescription) \n", error)
+            }
         }
     }
 }

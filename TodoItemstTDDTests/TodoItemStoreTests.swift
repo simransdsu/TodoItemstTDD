@@ -14,7 +14,7 @@ class TodoItemStoreTests: XCTestCase {
     var sut: TodoItemStore!
     
     override func setUpWithError() throws {
-        sut = TodoItemStore()
+        sut = TodoItemStore(filename: "dummy_store")
     }
 
     func test_add_shouldPublishChange() throws {
@@ -38,8 +38,32 @@ class TodoItemStoreTests: XCTestCase {
         XCTAssertEqual(doneItems, [todoItem])
     }
     
+    func test_init_shouldLoadPreviousTodoItems() {
+        
+        var sut1: TodoItemStore? = TodoItemStore(filename: "dummy_store")
+        let publishedExpectation = expectation(description: "Wait for publisher in \(#file)")
+        
+        let todoItem = TodoItem(title: "Dummy Title")
+        sut1?.add(todoItem)
+        sut1 = nil
+        
+        let sut2 = TodoItemStore(filename: "dummy_store")
+        var result: [TodoItem]?
+        let token = sut2.itemPublisher
+            .sink { values in
+                result = values
+                publishedExpectation.fulfill()
+            }
+        wait(for: [publishedExpectation], timeout: 1)
+        token.cancel()
+        XCTAssertEqual(result, [todoItem])
+    }
+    
     override func tearDownWithError() throws {
         sut = nil
+        if let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("dummy_store").appendingPathExtension("json") {
+            try? FileManager.default.removeItem(at: url)
+        }
     }
 }
 
