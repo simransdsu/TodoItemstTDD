@@ -39,24 +39,23 @@ class TodoItemStore {
     }
     
     private func saveItems() {
-        if let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent(filename).appendingPathExtension("json") {
-            do {
-                let data = try JSONEncoder().encode(items)
-                try data.write(to: url)
-            } catch  {
-                print("❌ in \(#function) \(error.localizedDescription) \n", error)
-            }
+        let url = FileManager.default.documentsURL(name: filename)
+        do {
+            let data = try JSONEncoder().encode(items)
+            try data.write(to: url)
+        } catch  {
+            print("❌ in \(#function) \(error.localizedDescription) \n", error)
         }
+        
     }
-    
+
     private func loadItems() {
-        if let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent(filename).appendingPathExtension("json") {
-            do {
-                let data = try Data(contentsOf: url)
-                items = try JSONDecoder().decode([TodoItem].self, from: data)
-            } catch  {
-                print("❌ in \(#function) \(error.localizedDescription) \n", error)
-            }
+        let url = FileManager.default.documentsURL(name: filename)
+        do {
+            let data = try Data(contentsOf: url)
+            items = try JSONDecoder().decode([TodoItem].self, from: data)
+        } catch  {
+            print("❌ in \(#function) \(error.localizedDescription) \n", error)
         }
     }
 }
