@@ -34,8 +34,9 @@ class TodoItemStore {
         mutableItem.done = true
         if let index = items.firstIndex(of: mutableItem) {
             items[index] = mutableItem
+            saveItems()
         }
-        saveItems()
+        
     }
     
     private func saveItems() {

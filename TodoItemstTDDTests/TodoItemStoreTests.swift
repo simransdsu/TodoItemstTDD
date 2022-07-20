@@ -59,6 +59,31 @@ class TodoItemStoreTests: XCTestCase {
         XCTAssertEqual(result, [todoItem])
     }
     
+    func test_init_whenItemIsChecked_shouldLoadPreviousTodoItems() throws {
+        
+        var sut1: TodoItemStore? = TodoItemStore(filename: "dummy_store")
+        let publisherException = expectation(description: "Wait for publisher in \(#file)")
+        
+        let todoItem = TodoItem(title: "Dummy Title")
+        sut1?.add(todoItem)
+        sut1?.check(todoItem)
+        sut1 = nil
+        
+        
+        let sut2: TodoItemStore? = TodoItemStore(filename: "dummy_store")
+        var result: [TodoItem]?
+        let token = sut2?.itemPublisher
+            .sink(receiveValue: { values in
+                result = values
+                publisherException.fulfill()
+            })
+        wait(for: [publisherException], timeout: 1)
+        token?.cancel()
+        
+        XCTAssertEqual(result?.first?.done, true)
+        
+    }
+    
     override func tearDownWithError() throws {
         sut = nil
         let url = FileManager.default.documentsURL(name: "dummy_store")
